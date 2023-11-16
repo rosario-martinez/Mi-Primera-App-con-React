@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mi primera App con react</title>
+    <title>Mi primera App con React</title>
 </head>
 <body>
     <div id="app"></div>
-    
 
-<script src="
-https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js
-"></script>
-<script src="
-https://cdn.jsdelivr.net/npm/react-dom@18.2.0/index.min.js
-">
-//accedemos al contenedor de la app
-const contenedor = document.getElementById('app');
-// creamos un encabezado
-const encabezado = React.createElement('h1','{}', 'Bienvenidos a este BLog');
-// renderizamos el encabezado dentro del contenedor.
-ReactDOM.render(encabezado,contenedor);
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
 
+    <script>
+        // Accedemos al contenedor de la app
+        const contenedor = document.getElementById('app');
+        // Creamos un encabezado
+        const encabezado = React.createElement('h1', {}, 'Bienvenidos a este Blog');
+        // Renderizamos el encabezado dentro del contenedor.
+        ReactDOM.render(encabezado, contenedor);
+    </script>
 </body>
 </html>
