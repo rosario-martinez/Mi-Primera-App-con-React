@@ -30,14 +30,13 @@ const App = () => {
           <h2 style={{ color: "hsl(120, 100%, 50%)" }}>
             No has iniciado sesión
           </h2>
-          <FormularioInicioSesion/>
-          {/* <button
+          <FormularioInicioSesion cambiarEstadoSesion={cambiarEstadoSesion} />
+          {/*<button
             onClick={iniciarSesion}
             style={{ backgroundColor: "hsl(120, 40%, 70%)" }}
           >
             Iniciar Sesión
-          </button> */}
-          
+          </button>  */}
         </div>
       )}
     </>
