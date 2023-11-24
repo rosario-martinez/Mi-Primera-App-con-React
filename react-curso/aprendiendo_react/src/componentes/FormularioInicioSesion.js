@@ -1,11 +1,25 @@
+import { useState } from "react";
+
 const FormularioInicioSesion = () => {
+    const[usuario, cambiarUsuario] = useState ('');
+    const [password, cambiarPassword] = useState('');
+
+
     return (
       <form action="">
-        <p>Usuario</p>
-        <p>Constrase*a</p>
+        <p>Usuario: {usuario}</p>
+        <p>Constrase*a: {password}</p>
         <div>
           <label htmlFor="usuario">Usuario</label>
-          <input type="text" name="usuario" id="usuario" />
+          <input 
+          type="text" 
+          name="usuario" 
+          id="usuario" 
+          value={usuario}
+          onChange={() => {
+            console.log('El input cambio')
+          }}
+          />
         </div>
         <div>
           <label htmlFor="password">Contrase*a</label>
