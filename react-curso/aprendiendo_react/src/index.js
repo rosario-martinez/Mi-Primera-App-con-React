@@ -3,16 +3,17 @@ import ReactDOM from "react-dom/client";
 import Usuario from "./componentes/Usuario";
 import FormularioInicioSesion from "./componentes/FormularioInicioSesion";
 import ContadorClass from './componentes/ContadorClass';
+import './index.css';
 
 
 
 
 
 const App = () => {
-  const [sesion, cambiarEstadoSesion] = useState(true);
+  const [sesion, cambiarEstadoSesion] = useState(false);
 
   const cerrarSesion = () => {
-    cambiarEstadoSesion(false);
+  cambiarEstadoSesion(false);
   };
 
   const iniciarSesion = () => {
@@ -20,7 +21,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="contenedor">
       {sesion === true ? (
         <div>
           <Usuario />
@@ -43,7 +44,7 @@ const App = () => {
           </button>  */}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
