@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Usuario from "./componentes/Usuario";
 import FormularioInicioSesion from "./componentes/FormularioInicioSesion";
+import ContadorClass from './componentes/ContadorClass';
+
+
 
 
 
 const App = () => {
-  const [sesion, cambiarEstadoSesion] = useState(false);
+  const [sesion, cambiarEstadoSesion] = useState(true);
 
   const cerrarSesion = () => {
     cambiarEstadoSesion(false);
@@ -21,7 +24,8 @@ const App = () => {
       {sesion === true ? (
         <div>
           <Usuario />
-          <button onClick={cerrarSesion} style={{ backgroundColor: "pink" }}>
+          <ContadorClass cantidadAIncrementar={10} cantidadADisminuir={2} />
+          <button onClick={() => cambiarEstadoSesion(false)}>
             Cerrar Sesión
           </button>
         </div>
