@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Usuario from "./componentes/Usuario";
 // import ContadorClass from './componentes/ContadorClass';
-import './index.css';
+import "./index.css";
 import ContadorFuncional from "./componentes/ContadorFuncional";
 import FormularioInicioSesion from "./componentes/FormularioInicioSesion";
 import Boton from "./elementos/Boton";
+import  EjemploUseReducer  from "./componentes/EjemploUseReducer";
 
-
-
-const App = () => { 
+const App = () => {
   const [sesion, cambiarEstadoSesion] = useState(true);
-
 
   return (
     <div className="contenedor">
       {sesion === true ? (
         <div>
           <Usuario />
-          <ContadorFuncional
+          <EjemploUseReducer />
+          {/*<ContadorFuncional
             cantidadAIncrementar={20}
             cantidadADisminuir={20}
           />

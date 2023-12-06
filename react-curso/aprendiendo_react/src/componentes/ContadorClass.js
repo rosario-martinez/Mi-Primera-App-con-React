@@ -11,12 +11,12 @@ class Contador extends Component{
     console.log('El componente se cargo en el DOM');
   }
   componentDidUpdate(propiedadesAnteriores, estadoAnterior){
-    console.log('el componente se actualizo ');
+    console.log('El componente se actualizo ');
     console.log('Propiedades anteriores del componente', propiedadesAnteriores);
     console.log("Estado anterior del componente", propiedadesAnteriores, estadoAnterior);
   }
   componentWillUnmount(){
-    console.log('adios componente');
+    console.log('Adios componente');
   }
 
 
