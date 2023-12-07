@@ -7,6 +7,8 @@ import ContadorFuncional from "./componentes/ContadorFuncional";
 import FormularioInicioSesion from "./componentes/FormularioInicioSesion";
 import Boton from "./elementos/Boton";
 import  EjemploUseReducer  from "./componentes/EjemploUseReducer";
+import Blog from "./componentes/blog";
+
 
 const App = () => {
   const [sesion, cambiarEstadoSesion] = useState(true);
@@ -16,6 +18,7 @@ const App = () => {
       {sesion === true ? (
         <div>
           <Usuario />
+          <Blog/>
           <EjemploUseReducer />
           {/*<ContadorFuncional
             cantidadAIncrementar={20}
