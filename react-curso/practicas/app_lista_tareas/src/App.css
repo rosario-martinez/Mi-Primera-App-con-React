@@ -145,3 +145,28 @@
 	font-size: 20px;
 	padding: 40px 20px;
 }
+
+/* * --- --- ---  FORMULARIO EDITAR TAREA --- --- --- */
+.formulario-editar-tarea {
+	display: flex;
+}
+
+.formulario-editar-tarea__input {
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #b8b8b8;
+	background: none;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	margin-right: 20px;
+}
+
+.formulario-editar-tarea__btn {
+	border: none;
+	background: var(--verde);
+	cursor: pointer;
+	color: #fff;
+	padding: 0 10px;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 3px;
+}
