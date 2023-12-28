@@ -1,50 +1,22 @@
 import React from "react";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./componentes/Header";
+import Inicio from "./componentes/Inicio";
+import Blog from "./componentes/Blog";
+import AcercaDe from "./componentes/AcercaDe";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <header>
-          <h1>Mi Blog Personal</h1>
-          <nav>
-            <NavLink to="/">Inicio </NavLink>
-            <NavLink to="/blog">Blog</NavLink>
-            <NavLink to="/acerca-de">Acerca de </NavLink>
-          </nav>
-        </header>
+        <Header/>
+        
         <main>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <h2>Pagina de Inicio</h2>
-                  <p>Esta es la pagina principal de nuestro sitio</p>
-                </div>
-              }
-            />
-            <Route
-              path="/blog"
-              element={
-                <div>
-                  <h2>Blog</h2>
-                  <ul>
-                    <li>Articulo #1</li>
-                    <li>Articulo #2</li>
-                    <li>Articulo #3</li>
-                  </ul>
-                </div>
-              }
-            />
-            <Route
-              path="/acerca-de"
-              element={
-                <div>
-                  <h2>Acerca de</h2>
-                  <p>Hola! Mi nombre es Rosario Martinez</p>
-                </div>
-              }
+            
+            <Route path="/"element={<Inicio/>}/>
+            <Route path="/blog" element={<Blog/>}/>
+            <Route path="/acerca-de" element={<AcercaDe/> }
             />
           </Routes>
         </main>
