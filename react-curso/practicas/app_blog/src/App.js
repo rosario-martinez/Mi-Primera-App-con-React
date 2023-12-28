@@ -6,6 +6,8 @@ import Blog from "./componentes/Blog";
 import AcercaDe from "./componentes/AcercaDe";
 import styled from "styled-components";
 import Post from "./componentes/post";
+import Error404 from "./componentes/Error404";
+
 
 
 
@@ -18,6 +20,7 @@ const App = () => {
         
         <Main>
           <Routes>
+            <Route path="*" element={<Error404 />}/>
             <Route path="/post/:id" element={<Post/>}/>
             <Route path="/"element={<Inicio/>}/>
             <Route path="/blog" element={<Blog/>}/>
