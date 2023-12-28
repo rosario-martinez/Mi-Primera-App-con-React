@@ -5,6 +5,8 @@ import Inicio from "./componentes/Inicio";
 import Blog from "./componentes/Blog";
 import AcercaDe from "./componentes/AcercaDe";
 import styled from "styled-components";
+import Post from "./componentes/post";
+
 
 
 const App = () => {
@@ -16,7 +18,7 @@ const App = () => {
         
         <Main>
           <Routes>
-            
+            <Route path="/post/:id" element={<Post/>}/>
             <Route path="/"element={<Inicio/>}/>
             <Route path="/blog" element={<Blog/>}/>
             <Route path="/acerca-de" element={<AcercaDe/> }
