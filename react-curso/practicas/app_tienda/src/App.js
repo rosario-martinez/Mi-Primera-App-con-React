@@ -19,9 +19,14 @@ const App = () => {
     const [carrito, cambiarCarrito] = useState([]);
 
     const agregarProductoAlCarrito = (idProductoAAgregar, nombre) => {
+      //si el carrito no tiene elemento entonces agregamos uno 
       if(carrito.length === 0){
           cambiarCarrito ([{id: idProductoAAgregar, nombre: nombre, cantidad: 1 }]);
-      }
+      } else {}
+
+      // de otra forma tenemos que revisar que el carrito no tenga ya el producto a agregar 
+      // si ya lo tiene entonces queremos actualizar su valor.
+      //si no tiene el producto lo agregamos 
     }
   
   return (
