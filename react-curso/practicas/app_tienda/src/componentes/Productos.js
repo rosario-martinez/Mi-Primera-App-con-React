@@ -1,33 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const Productos = ({}) => {
-
+const Productos = ({ producto, agregarProductoAlCarrito }) => {
   const productos = [
-    { id: 1, nombre: 'Producto 1' },
-     { id: 2, nombre: 'Producto 2' },
-      { id: 3, nombre: 'Producto 3' },
-       { id: 4, nombre: 'Producto 4' }
+    { id: 1, nombre: "Producto 1" },
+    { id: 2, nombre: "Producto 2" },
+    { id: 3, nombre: "Producto 3" },
+    { id: 4, nombre: "Producto 4" },
   ];
-    
-    
-    return (  
-        <div>
-            <h3>Productos</h3>
-            <ContenedorProductos>
-                {productos.map((producto,index) => {
-                  return(
-                  <Producto key={index}>
-                    <p>{producto.nombre}</p>
-                    <Boton>Agregar al Carrito </Boton>
-                  </Producto>
-                  );
-                })}
-            </ContenedorProductos>
-            
-        </div>
-   );
-}
+
+  return (
+    <div>
+      <h3>Productos</h3>
+      <ContenedorProductos>
+        {productos.map((producto, index) => {
+          return (
+            <Producto key={index}>
+              <p>{producto.nombre}</p>
+              <Boton
+                onClick={() =>
+                  agregarProductoAlCarrito(producto.id, producto.nombre)
+                }
+              >
+                Agregar al Carrito{" "}
+              </Boton>
+            </Producto>
+          );
+        })}
+      </ContenedorProductos>
+    </div>
+  );
+};
 
 const ContenedorProductos = styled.div`
   display: grid;
@@ -66,5 +69,5 @@ const Boton = styled.button`
     background: #1c6ab9;
   }
 `;
- 
+
 export default Productos;

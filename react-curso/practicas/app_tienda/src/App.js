@@ -17,6 +17,12 @@ const App = () => {
     ];
 
     const [carrito, cambiarCarrito] = useState([]);
+
+    const agregarProductoAlCarrito = (idProductoAAgregar, nombre) => {
+      if(carrito.length === 0){
+          cambiarCarrito ([{id: idProductoAAgregar, nombre: nombre, cantidad: 1 }]);
+      }
+    }
   
   return (
     <Contenedor>
@@ -30,12 +36,16 @@ const App = () => {
           <Route path="*" element={<Error404 />} />
           <Route path="/" element={<Inicio />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/tienda" element={<Tienda productos={productos} />} />
+          <Route path="/tienda" element={
+          <Tienda
+           productos={productos} 
+           agregarProductoAlCarrito={agregarProductoAlCarrito}
+           />} />
         </Routes>
       </main>
 
       <aside>
-        <Carrito carrito = {carrito}/>
+        <Carrito carrito={carrito} />
       </aside>
     </Contenedor>
   );
