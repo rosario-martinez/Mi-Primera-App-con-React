@@ -22,11 +22,49 @@ const App = () => {
       //si el carrito no tiene elemento entonces agregamos uno 
       if(carrito.length === 0){
           cambiarCarrito ([{id: idProductoAAgregar, nombre: nombre, cantidad: 1 }]);
-      } else {}
-
-      // de otra forma tenemos que revisar que el carrito no tenga ya el producto a agregar 
+      } else {
+        // de otra forma tenemos que revisar que el carrito no tenga ya el producto a agregar 
       // si ya lo tiene entonces queremos actualizar su valor.
       //si no tiene el producto lo agregamos 
+
+      // para poder editar el arreglo tenemos que clonarlo. no podemos editar el original por eso hemos creados un nuevo carrito
+      // [...carrito] esta es la clonacion de carrito.
+      const nuevoCarrito = [...carrito];
+
+      //queremos comprobar si el carrito ya tiene el ID del producto a agregar un producto 
+      //por ello al clon que es nuevoCarrito le aplicamos el metodo filter (ejecuta return que es una funcion que se va a ejecutar por cada arreglo de mi carrito  )
+      // resumen estamos comprobando si el elemento que queremos agregar ya esta en carrito y o no y o GUARDAMOS EN LA VARIABLE 
+      //YaEstaEnCarrito
+      const yaEstaEnCarrito = nuevoCarrito.filter((productoDeCarrito) => {
+        return productoDeCarrito.id === idProductoAAgregar
+      }).length > 0;
+      //si ya esta en carrito el producto, lo tenemos que actualizar. 
+      if (yaEstaEnCarrito){
+      //Para ello tenemos que buscarlo, obtener su posicion en el arrglo y en base a su posicion actualizamos su valor 
+     //aplicamos forEach (() => {})es un metodo que permitira ejecutar una funcion  por cada elemento del arreglo 
+      nuevoCarrito.forEach((productoDeCarrito, index) => {
+        if(productoDeCarrito.id === idProductoAAgregar){
+          const cantidad = nuevoCarrito[index].cantidad;
+          nuevoCarrito[index] = {
+            id: idProductoAAgregar, 
+            nombre: nombre, 
+            cantidad: cantidad + 1
+          }
+        }
+      });
+      //de otra forma entonces agregamos el producto al arreglo.
+      } else { //push va a empujar un nuevo elemento al arreglo 
+        nuevoCarrito.push(
+          { id: idProductoAAgregar,
+            nombre: nombre,
+            cantidad: 1
+          }
+        );
+      }
+      //por ultimo actualizamos el carrito.
+      cambiarCarrito(nuevoCarrito);
+
+      }
     }
   
   return (
