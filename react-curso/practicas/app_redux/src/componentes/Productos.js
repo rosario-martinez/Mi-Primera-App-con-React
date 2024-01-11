@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { connect, useSelector } from "react-redux";
+
+
 
 const Productos = ({ producto, agregarProductoAlCarrito }) => {
-  const productos = [
-    { id: 1, nombre: "Producto 1" },
-    { id: 2, nombre: "Producto 2" },
-    { id: 3, nombre: "Producto 3" },
-    { id: 4, nombre: "Producto 4" },
-  ];
-
+  const productos = useSelector(estado => estado.productos)
   return (
     <div>
       <h3>Productos</h3>
@@ -70,4 +67,10 @@ const Boton = styled.button`
   }
 `;
 
-export default Productos;
+const mapStateToProps = (estado) => {
+  return {
+    productos: estado.productos
+  }
+}
+
+export default connect (mapStateToProps)(Productos);

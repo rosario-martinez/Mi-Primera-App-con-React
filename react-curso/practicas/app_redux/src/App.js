@@ -12,13 +12,6 @@ import reducer from "./reducers/tiendaReducer";
 
 const App = () => {
   
-  const productos = [
-      { id: 1, nombre: "Producto 1" },
-      { id: 2, nombre: "Producto 2" },
-      { id: 3, nombre: "Producto 3" },
-      { id: 4, nombre: "Producto 4" }
-    ];
-
     const [carrito, cambiarCarrito] = useState([]);
 
     const agregarProductoAlCarrito = (idProductoAAgregar, nombre) => {
@@ -88,7 +81,6 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/tienda" element={
           <Tienda
-           productos={productos} 
            agregarProductoAlCarrito={agregarProductoAlCarrito}
            />} />
         </Routes>
