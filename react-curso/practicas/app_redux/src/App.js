@@ -6,12 +6,9 @@ import Blog from "./componentes/Blog";
 import Tienda from "./componentes/Tienda";
 import Error404 from "./componentes/Error404";
 import Carrito from "./componentes/Carrito";
-import { Provider  } from "react-redux";
+import { Provider } from "react-redux";
 import { createStore } from 'redux';
-
-
-
-
+import reducer from "./reducers/tiendaReducer";
 
 const App = () => {
   
@@ -74,10 +71,10 @@ const App = () => {
     } //colapsado el producto 
 
     const store = createStore(reducer);
-    //el reducer es una funcion quese encarga de editar el estado. en este caso el global 
+    //el reducer es una funcion quese encarga de editar el estado. en este caso el global, se puede tener varios reducer 
   
   return (
-    <Provider strore={store}>
+    <Provider store={store}>
       <Contenedor>
       <Menu>
         <NavLink to="/">Inicio</NavLink>
