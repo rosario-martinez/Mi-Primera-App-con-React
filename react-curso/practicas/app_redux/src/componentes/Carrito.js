@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { connect,useSelector } from "react-redux";
+
 
 const Producto = styled.div`
   padding: 10px;
@@ -12,9 +14,10 @@ const NombreProducto = styled.p`
   font-size: 16px;
   color: #000;
 `;
-const Carrito = ({carrito}) => {
-  
+const Carrito = () => {
+  const carrito = useSelector((estado) => estado.carrito);
   return (
+
     <div>
       <h3>Carrito de Compra</h3>
       {carrito.length > 0 ? (
@@ -33,5 +36,10 @@ const Carrito = ({carrito}) => {
   );
 };
 
+const mapStateToProps = (estado) => {
+  return {
+    carrito: estado.carrito
+  }
+}
 
-export default Carrito;
+export default connect(mapStateToProps)(Carrito);

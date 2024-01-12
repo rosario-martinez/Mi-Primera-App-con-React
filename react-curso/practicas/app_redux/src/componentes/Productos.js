@@ -73,4 +73,19 @@ const mapStateToProps = (estado) => {
   }
 }
 
-export default connect (mapStateToProps)(Productos);
+//el dispatch es una funcion que pregunta que quieres que reduce haga, en este caso es agragar producto al carrito 
+
+const mapDispatchTOProps = (dispatch) => {
+  return {
+    agregarProductoAlCarrito: (idProductoAAgregar, nombre) =>{
+      dispatch(
+        {
+          type: 'AGREGAR_PRODUCTO_AL_CARRITO',
+          idProductoAAgregar: idProductoAAgregar,
+          nombre: nombre
+        });
+    }
+  }
+}
+
+export default connect (mapStateToProps, mapDispatchTOProps )(Productos);
