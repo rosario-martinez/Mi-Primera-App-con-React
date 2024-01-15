@@ -1,5 +1,7 @@
 
-import React, {useState} from "react"; 
+import React, {useState, useContext} from "react"; 
+
+
 
 //creamos contexto = estado global.
 const ContextoTema = React.createContext();
@@ -14,9 +16,18 @@ const ProovedorTema = ({children}) => {
         fuente: 30
         }
     );
+     const aumentarFuente = () =>
+       cambiarTema({ ...tema, fuente: tema.fuente + 1 });
+     const disminuirFuente = () =>
+       cambiarTema({ ...tema, fuente: tema.fuente - 1 });
+       const alinearIzquierda = () =>
+         cambiarTema({ ...tema, alineado: 'left'});
+
+
+
 
     return ( //por aqui pasamos el estado global 
-        <ContextoTema.Provider value ={{tema}}>
+        <ContextoTema.Provider value ={{tema, aumentarFuente, disminuirFuente, alinearIzquierda}}>
             {children} 
         </ContextoTema.Provider>
     ); // vamos a inyectar todos los componente hijos que van adentro 

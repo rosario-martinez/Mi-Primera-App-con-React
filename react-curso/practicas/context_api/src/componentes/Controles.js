@@ -1,22 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useContext} from 'react';
+import styled from "styled-components";
+import { ContextoTema } from "./../contextos/contextoTema";
 
 const Controles = () => {
+    const { aumentarFuente, disminuirFuente, alinearIzquierda } =
+      useContext(ContextoTema);
+
     return (
-        <ContenedorControles>
-         <div>
+      <ContenedorControles>
         <div>
-          <Boton>Aumentar Fuente</Boton>
-          <Boton>Dism Fuente</Boton>
+          <div>
+            <Boton onClick={aumentarFuente}>Aumentar Fuente</Boton>
+            <Boton onClick={disminuirFuente}>Dism Fuente</Boton>
+          </div>
+          <div>
+            <Boton onClick={alinearIzquierda}>Izquierda</Boton>
+            <Boton onClick={aumentarFuente}>centro</Boton>
+            <Boton onClick={aumentarFuente}>Derecha</Boton>
+          </div>
         </div>
-        <div>
-          <Boton>Izquierda</Boton>
-          <Boton>centro</Boton>
-          <Boton>Derecha</Boton>
-        </div>
-      </div>   
-        </ContenedorControles>
-      
+      </ContenedorControles>
     );
 
 }
