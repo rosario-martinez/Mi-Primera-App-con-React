@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ /* este root permite cambiar el tama*o de nuestra aplicacion */
+:root {
+    font-size: 16px;
+}
+ /* estilos del body*/
+ /* font- family lo puedes cambiar con google font */
+body {
+    background: #F9F9F9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Work Sans', sans-serif;
+}
+ 
+#root {
+    width: 100%;
+}
+
+
+ /* este va a permitir cambiar el tama*o de 16 a 14 para que quede a telefono */
+@media screen and (max-width: 60rem){ /* 950px */
+    :root {
+        font-size: 14px;
+    }
+}
