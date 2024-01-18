@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore } from "firebase/firestore/lite";
 import { getAuth } from "firebase/auth";
 
 ;
@@ -9,13 +9,18 @@ import { getAuth } from "firebase/auth";
 
 // La configuración de Firebase de tu aplicación web
 const firebaseConfig = {
-  apiKey: "AIzaSyDqeLt5KPvg2Tcs2BN8Cs67zMW5mW5009s",
-  authDomain: "react-app-lista-de-gasto-378a0.firebaseapp.com",
-  projectId: "react-app-lista-de-gasto-378a0",
-  storageBucket: "react-app-lista-de-gasto-378a0.appspot.com",
-  messagingSenderId: "1098338755296",
-  appId: "1:1098338755296:web:c3a3ed6d2ce8d8041ae685",
+  apiKey: process.env.REACT_API_APIKEY,
+  authDomain: process.env.REACT_API_AUTHDOMAIN, 
+  projectId: process.env.REACT_API_PROJECTID,
+  storageBucket:process.env.REACT_API_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_API_MESSAGINGSENDERID,
+  appId: process.env.REACT_API_APPID
 };
 
 // Inicializar base de fuego
 const app = initializeApp(firebaseConfig);
+
+const auth = getAuth();
+const db = getFirestore();
+
+export {db, auth, app}
