@@ -30,7 +30,7 @@ const Index = () => {
      HTML en función del estado de tu aplicación React.*/
     <>
       <Helmet>
-        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+        <link rel="shortcut icon" href={favicon} type="image/x-icon"></link>
       </Helmet>
       <BrowserRouter>
         <Contenedor>
