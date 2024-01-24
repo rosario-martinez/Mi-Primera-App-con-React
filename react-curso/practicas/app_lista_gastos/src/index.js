@@ -13,6 +13,8 @@ import RegistroUsuarios from "./componentes/RegistroUsuarios";
 import { Helmet } from "react-helmet";
 import favicon from './imagenes/logo.png';
 import Fondo from "./elementos/Fondo";
+import { AuthProvider } from "./contexto/AuthContext";
+
 
 
 WebFont.load({
@@ -32,7 +34,9 @@ const Index = () => {
       <Helmet>
         <link rel="shortcut icon" href={favicon} type="image/x-icon"></link>
       </Helmet>
-      <BrowserRouter>
+
+      <AuthProvider>
+        <BrowserRouter>
         <Contenedor>
           <Routes>
             <Route path="/" element={<App />} />
@@ -44,6 +48,8 @@ const Index = () => {
           </Routes>
         </Contenedor>
       </BrowserRouter>
+      </AuthProvider>
+      
       <Fondo/>
     </>
   );
