@@ -6,8 +6,11 @@ import {Formulario, Input, InputGrande, ContenedorBoton} from "./../elementos/El
 import { ReactComponent as SvgLogin } from "./../imagenes/registro.svg";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import {  createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./../firebase/firebaseConfig";
+import Alerta from "./../elementos/Alerta";
+
+
 
 // quiero definir un componente svg y darle unos estilos peque;os
 
@@ -27,9 +30,13 @@ const RegistroUsuarios = () => {
   const [correo, establecerCorreo] = useState("");
   const [password, establecerPassword] = useState("");
   const [password2, establecerPassword2] = useState("");
+  const [estadoAlerta, cambiarEstadoAlerta] = useState (false);
+  const [alerta, cambiarAlerta] = useState ({});
+
 
   /*con switch estamos ejecutando una funcion que aplica cuando hay cambios */
   const handleChange = (e) => {
+    
     switch (e.target.name) {
       case "email":
         establecerCorreo(
@@ -50,34 +57,50 @@ const RegistroUsuarios = () => {
     de los valores que se coloquen en crear cuentas sean correcto  */
 
   const handleSubmit = async (e) => {
-    console.log("pasa")
+    
     e.preventDefault();
+    cambiarEstadoAlerta(true);
+    cambiarAlerta({});
+
     //Comprobamos del lado del cliente que el correo sea valido
     const expresionRegular = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
+    
     //esta es una formula para ver si conside con el correo vamos a colocar los condicionales de nuestra funcion
     if (!expresionRegular.test(correo)) {
       // el signo (!) significa = sino es un (correo) quiero que
-      alert("correo invalido")
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: 'error',
+        mensaje: 'por favor ingresar datos '
+      });
       return;
     }
 
-    if (correo === "" || password === "" || password2 === "") {
-      alert("algo esta vacio")
+    if (correo === '' || password === '' || password2 === '') {
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "por favor rellena los datos"
+      });
       return; //si no cumple ninguna de esta funcion salimos gracias a return y probamos la otra funcion
     }
 
     if (password !== password2) {
-      alert("las contrase;as son diferentes")
+      
+      cambiarEstadoAlerta(true);
+      cambiarAlerta({
+        tipo: "error",
+        mensaje: "las contrase;as no son iguales  "
+      });
       return;
     }
 
     try {
-      console.log("pasa por createuser")
-      console.log(correo)
-      console.log(password);
       await createUserWithEmailAndPassword(auth, correo, password); //aqui termina la funcion con await
       navigate("/");
     } catch (error) {
+      cambiarEstadoAlerta(true);
+
       let mensaje;
       switch (error.code) {
         case "auth/invalid-password":
@@ -94,6 +117,8 @@ const RegistroUsuarios = () => {
           mensaje = "Hubo un error al intentar crear la cuenta.";
           break;
       }
+
+      cambiarAlerta({tipo: 'error', mensaje: mensaje})
     }
     
    
@@ -150,6 +175,15 @@ const RegistroUsuarios = () => {
            </Boton>
          </ContenedorBoton>
        </Formulario>
+
+       <Alerta
+       tipo ={alerta.tipo}
+       mensaje={alerta.mensaje}
+       estadoAlerta={estadoAlerta}
+       cambiarEstadoAlerta={cambiarEstadoAlerta}
+       />
+
+       
      </>
    );
 };
