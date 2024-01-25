@@ -14,6 +14,8 @@ import { Helmet } from "react-helmet";
 import favicon from './imagenes/logo.png';
 import Fondo from "./elementos/Fondo";
 import { AuthProvider } from "./contexto/AuthContext";
+import RutaPrivada from "./componentes/RutaPrivada";
+
 
 
 
@@ -37,20 +39,43 @@ const Index = () => {
 
       <AuthProvider>
         <BrowserRouter>
-        <Contenedor>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/iniciar-sesion" element={<InicioSesion />} />
-            <Route path="/crear-cuenta" element={<RegistroUsuarios />} />
-            <Route path="/editar/:id" element={<EditarGastos />} />
-            <Route path="/lista" element={<ListaDeGastos />} />
-            <Route path="/categorias" element={<GastosPorCategorias />} />
-          </Routes>
-        </Contenedor>
-      </BrowserRouter>
+          <Contenedor>
+            <Routes>
+              {/*estas son las rutas publicas que se pueden ver al entrar a la app */}
+              <Route path="/iniciar-sesion" element={<InicioSesion />} />
+              <Route path="/crear-cuenta" element={<RegistroUsuarios />} />
+              {/*estas son las rutas privadas  que estaran ocultas en el usuario que no esta adentro de app */}
+              
+              <Route path = "/categorias" element ={
+                <RutaPrivada>
+                  <GastosPorCategorias/>
+                </RutaPrivada>  
+              }/>
+
+              <Route path = "/lista" element = {
+              <RutaPrivada>
+                <ListaDeGastos />
+              </RutaPrivada>
+              }/>
+              
+                <Route path = "/editar/:id" element ={
+                  <RutaPrivada>
+                    <EditarGastos />
+                  </RutaPrivada>
+                }/>
+
+              <Route path="/" element ={
+                <RutaPrivada >
+                <App />
+              </RutaPrivada>
+              }/>
+              
+            </Routes>
+          </Contenedor>
+        </BrowserRouter>
       </AuthProvider>
-      
-      <Fondo/>
+
+      <Fondo />
     </>
   );
 };
