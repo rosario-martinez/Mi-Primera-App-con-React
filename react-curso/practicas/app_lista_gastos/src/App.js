@@ -8,6 +8,8 @@ import {
 } from "./elementos/Header";
 import Boton from "./elementos/Boton";
 import BotonCerrarSesion from "./elementos/BotonCerrarSesion";
+import FormularioGasto from "./componentes/FormularioGasto";
+
 
 // el contenedorde Header se utilizaba en este caso porque necesitabamos agregar titulo y contenedor  botones
 const App = () => {
@@ -23,10 +25,12 @@ const App = () => {
           <ContenedorBotones>
             <Boton to="/categorias">Categoria</Boton>
             <Boton to="/lista">Lista de Gastos</Boton>
-            <BotonCerrarSesion/>
+            <BotonCerrarSesion />
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
+
+      <FormularioGasto />
     </>
   );
 };

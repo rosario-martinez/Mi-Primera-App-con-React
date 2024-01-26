@@ -141,7 +141,7 @@ const RegistroUsuarios = () => {
 
        <Formulario onSubmit={handleSubmit}>
          <Svg />
-         <input
+         <Input
            type="email"
            name="email"
            placeholder="Correo Electronico"
@@ -149,7 +149,7 @@ const RegistroUsuarios = () => {
            onChange={handleChange}
          />
 
-         <input
+         <Input
            type="password"
            name="password"
            placeholder="Contraseña"
@@ -157,7 +157,7 @@ const RegistroUsuarios = () => {
            onChange={handleChange}
          />
 
-         <input
+         <Input
            type="password"
            name="password2"
            placeholder="Repetir la contraseña"

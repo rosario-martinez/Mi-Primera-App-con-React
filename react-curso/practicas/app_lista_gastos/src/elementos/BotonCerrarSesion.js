@@ -20,7 +20,7 @@ const BotonCerrarSesion = () => {
   };
 
   return (
-    <Boton iconoGrande as="button" onClick={cerrarSesion}>
+    <Boton iconogrande= 'true' as="button" onClick={cerrarSesion}>
       <IconoCerrarSesion />
     </Boton>
   );
