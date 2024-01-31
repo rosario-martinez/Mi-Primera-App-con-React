@@ -9,6 +9,7 @@ import {
   orderBy,
   where,
   limit,
+  startAfter
 } from "firebase/firestore";
 
 //es una funcion
@@ -18,6 +19,31 @@ const useObtenerGastos = () => {
   const [ultimoGasto, cambiarUltimoGasto] = useState(null);
   const [hayMasPorCargar, cambiarHayMasPorCargar] = useState(false);
 
+
+  const obtenerMasGastos = () => {
+
+    const consulta = query(
+      collection (db, 'gastos'),
+      where("uidUsuario", "==", usuario.uid),
+      orderBy("fecha", "desc"),
+      limit(10),
+      startAfter(ultimoGasto)
+    );
+       
+   
+    onSnapshot (consulta, (snapshot) => {
+      if (snapshot.docs.length > 0) {
+        cambiarUltimoGasto(snapshot.docs[snapshot.docs.length - 1]);
+
+        cambiarGastos(gastos.concat(snapshot.docs.map((gasto) => {
+          return {...gasto.data(), id: gastos.id}
+        })))
+      } else {
+        cambiarHayMasPorCargar (false);
+      }
+    }, error => {console.log(error)});
+  }
+
   useEffect(() => {
     console.log("se ejecuta el hook");
     const consulta = query(
@@ -25,7 +51,7 @@ const useObtenerGastos = () => {
       where("uidUsuario", "==", usuario.uid),
       orderBy("fecha", "desc"),
       limit(10)
-      
+
     );
 
     const unsuscribe = onSnapshot(consulta, (snapshot) => {
@@ -48,7 +74,7 @@ const useObtenerGastos = () => {
     return unsuscribe;
   }, [usuario]);
 
-  return [gastos, hayMasPorCargar];
+  return [gastos, obtenerMasGastos, hayMasPorCargar];
 };
 
 export default useObtenerGastos;

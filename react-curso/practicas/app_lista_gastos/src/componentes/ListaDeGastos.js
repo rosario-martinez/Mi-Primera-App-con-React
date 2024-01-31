@@ -4,12 +4,9 @@ import { Helmet } from "react-helmet";
 import BtnRegresar from "../elementos/BtnRegresar";
 import { useAuth } from "./../contexto/AuthContext";
 import BarraTotalGastado from "./BarraTotalGastado";
-import useObtenerGastos from "../hooks/useObtenerGastos";
 import {
   Lista,
   ElementoLista,
-   ListaDeCategorias,
-   ElementoListaCategorias,
    Categoria,
    Descripcion,
    Valor,
@@ -29,12 +26,14 @@ import { Link } from "react-router-dom";
 import Boton from './../elementos/Boton';
 import {format, fromUnixTime} from 'date-fns';
 import {es} from 'date-fns/locale';
+import useObtenerGastos from './../hooks/useObtenerGastos';
+import borrarGasto from "../firebase/borrarGasto";
 // useAuth va a permiter tomando la variable de usuario de la funcion poder ver si un usuario a comenzado
 
 // en esta funcion se esta aplicando la llamada
 const ListaDeGastos = () => {
-  const [gastos] = useObtenerGastos();
-  
+  const [gastos, obtenerMasGastos, hayMasPorCargar] = useObtenerGastos();
+  console.log("nombre",obtenerMasGastos);
   const formatearFecha = (fecha) => {
     return format(fromUnixTime(fecha), `dd 'de' MMMM 'de' yyyy`, {locale: es})
   }
@@ -83,7 +82,7 @@ const ListaDeGastos = () => {
                 <BotonAccion as={Link} to={`/editar/${gasto.id}`}>
                   <IconoEditar/>
                 </BotonAccion>
-                <BotonAccion>
+                <BotonAccion onClick={() => borrarGasto(gasto.id)}>
                   <IconoBorrar/>
                 </BotonAccion>
               </ContenedorBotones>
@@ -92,15 +91,17 @@ const ListaDeGastos = () => {
             
           );
         })}
-
-        <ContenedorBotonCentral>
-          <BotonCargarMas>Cargar mas </BotonCargarMas>
-        </ContenedorBotonCentral>
+          {hayMasPorCargar &&
+          <ContenedorBotonCentral>
+            <BotonCargarMas onClick={() => obtenerMasGastos()}>Cargar mas </BotonCargarMas>
+          </ContenedorBotonCentral>
+          }
+        
 
         {gastos.length === 0 &&
          <ContenedorSubtitulo>
             <Subtitulo>No hay gastos por mostrar</Subtitulo>
-            <Boton as = {Link} to="/">Agregar Gastos</Boton>
+            <Boton as = {Link} to="/">Agregar Gasto</Boton>
          </ContenedorSubtitulo>
         }
 
