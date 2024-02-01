@@ -19,7 +19,7 @@ const useObtenerGastosDelMes = () => {
     //const inicioDeMes = getUnixTime(startOfMonth(new Date('20240101')));
     const finDeMes = getUnixTime(endOfMonth(new Date()));
 
-    console.log("id", usuario.uid);
+    //console.log("id", usuario.uid);
     //esta es nuestra nase de dato
     if (usuario) {
       console.log("hay usuario", usuario);
