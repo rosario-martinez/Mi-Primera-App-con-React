@@ -25,7 +25,7 @@ const BarraTotal = styled.div`
 const BarraTotalGastado = () => {
 
     const {total} = useTotalDelMes();
-    console.log('total', total);
+    //console.log('total', total);
       
     return ( 
         <BarraTotal>
