@@ -23,7 +23,7 @@ const useObtenerGastos = () => {
   const obtenerMasGastos = () => {
 
     const consulta = query(
-      collection (db, 'gastos'),
+      collection (db, 'gasto'),
       where("uidUsuario", "==", usuario.uid),
       orderBy("fecha", "desc"),
       limit(10),

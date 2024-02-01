@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 ;
 // Importa las funciones que necesitas desde los SDK que necesitas
 
-console.log(process.env)
+
 
 // La configuración de Firebase de tu aplicación web
 const firebaseConfig = {

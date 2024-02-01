@@ -3,9 +3,14 @@ import {Header, Titulo} from './../elementos/Header';
 import { Helmet } from "react-helmet";
 import BtnRegresar from '../elementos/BtnRegresar';
 import BarraTotalGastado from './BarraTotalGastado';
+import UseObtenerGastosDelMesPorCategoria from '../hooks/useObtenerGastosDelMesPorCategoria';
+
 
 // en este caso no estamos agregando contenedorHeader porque no agregaremos contenedores de botones 
 const GastosPorCategorias = () => {
+  UseObtenerGastosDelMesPorCategoria();
+
+
   return (
     <>
       <Helmet>
@@ -18,7 +23,8 @@ const GastosPorCategorias = () => {
           <Titulo>Gastos por Categoria</Titulo>
         
       </Header>
-      <BarraTotalGastado/>
+      
+     <BarraTotalGastado/>
     </>
   );
 }
