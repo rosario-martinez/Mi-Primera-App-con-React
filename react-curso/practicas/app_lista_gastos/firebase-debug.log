@@ -1,0 +1,30 @@
+[debug] [2024-02-01T22:24:02.012Z] ----------------------------------------------------------------------
+[debug] [2024-02-01T22:24:02.016Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pedro\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2024-02-01T22:24:02.016Z] CLI Version:   13.1.0
+[debug] [2024-02-01T22:24:02.016Z] Platform:      win32
+[debug] [2024-02-01T22:24:02.017Z] Node Version:  v20.11.0
+[debug] [2024-02-01T22:24:02.017Z] Time:          Thu Feb 01 2024 19:24:02 GMT-0300 (Argentina Standard Time)
+[debug] [2024-02-01T22:24:02.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-01T22:24:02.165Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-01T22:24:02.165Z] > authorizing via signed-in user (rosariomartinez0987@gmail.com)
+[debug] [2024-02-01T22:24:02.166Z] [iam] checking project curso-react-firebase-app-dec3b for permissions ["firebase.projects.get"]
+[debug] [2024-02-01T22:24:02.167Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/curso-react-firebase-app-dec3b:testIamPermissions [none]
+[debug] [2024-02-01T22:24:02.168Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/curso-react-firebase-app-dec3b:testIamPermissions x-goog-quota-user=projects/curso-react-firebase-app-dec3b
+[debug] [2024-02-01T22:24:02.168Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/curso-react-firebase-app-dec3b:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-02-01T22:24:03.041Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/curso-react-firebase-app-dec3b:testIamPermissions 200
+[debug] [2024-02-01T22:24:03.042Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/curso-react-firebase-app-dec3b:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-02-01T22:24:03.042Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b [none]
+[debug] [2024-02-01T22:24:03.368Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b 200
+[debug] [2024-02-01T22:24:03.369Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b {"projectId":"curso-react-firebase-app-dec3b","projectNumber":"1003273641750","displayName":"curso-react-firebase-app","name":"projects/curso-react-firebase-app-dec3b","resources":{"hostingSite":"curso-react-firebase-app-dec3b"},"state":"ACTIVE","etag":"1_e695f49d-b164-4115-b163-73fab04df531"}
+[debug] [2024-02-01T22:24:03.372Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/sites 
+[debug] [2024-02-01T22:24:04.511Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/sites 200
+[debug] [2024-02-01T22:24:04.511Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/sites {"sites":[{"name":"projects/curso-react-firebase-app-dec3b/sites/curso-react-firebase-app-dec3b","defaultUrl":"https://curso-react-firebase-app-dec3b.web.app","appId":"1:1003273641750:web:83cc30355ecceefc563a37","type":"DEFAULT_SITE"}]}
+[debug] [2024-02-01T22:24:04.511Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/webApps/1:1003273641750:web:83cc30355ecceefc563a37/config [none]
+[debug] [2024-02-01T22:24:05.274Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/webApps/1:1003273641750:web:83cc30355ecceefc563a37/config 200
+[debug] [2024-02-01T22:24:05.274Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b/webApps/1:1003273641750:web:83cc30355ecceefc563a37/config {"projectId":"curso-react-firebase-app-dec3b","appId":"1:1003273641750:web:83cc30355ecceefc563a37","storageBucket":"curso-react-firebase-app-dec3b.appspot.com","apiKey":"AIzaSyBeURyHW9XKtqtlS2UvIMsHa5yKLbzsH4Q","authDomain":"curso-react-firebase-app-dec3b.firebaseapp.com","messagingSenderId":"1003273641750","measurementId":"G-72W5E8ER0L"}
+[debug] [2024-02-01T22:24:05.281Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b [none]
+[debug] [2024-02-01T22:24:05.657Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b 200
+[debug] [2024-02-01T22:24:05.658Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/curso-react-firebase-app-dec3b {"projectId":"curso-react-firebase-app-dec3b","projectNumber":"1003273641750","displayName":"curso-react-firebase-app","name":"projects/curso-react-firebase-app-dec3b","resources":{"hostingSite":"curso-react-firebase-app-dec3b"},"state":"ACTIVE","etag":"1_e695f49d-b164-4115-b163-73fab04df531"}
+[info] i  hosting[curso-react-firebase-app-dec3b]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting[curso-react-firebase-app-dec3b]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}

@@ -90,7 +90,7 @@ const RegistroUsuarios = () => {
       cambiarEstadoAlerta(true);
       cambiarAlerta({
         tipo: "error",
-        mensaje: "las contrase;as no son iguales  "
+        mensaje: "las contraseñas no son iguales  "
       });
       return;
     }
